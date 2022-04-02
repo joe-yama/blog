@@ -1,4 +1,93 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[自分のための備忘録]]></description><link>https://joe-yama.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 01 Apr 2022 16:29:15 GMT</lastBuildDate><item><title><![CDATA[このブログをはじめるにあたって]]></title><description><![CDATA[いままで技術的な備忘録はEvernoteに溜め込んでいましたが、あまりにも雑すぎて読み返しても読み解けず、結局また調べる羽目に。。。のようなことが何度かあったのでこれからは…]]></description><link>https://joe-yama.github.io/blog/how-to-create-this-blog/</link><guid isPermaLink="false">https://joe-yama.github.io/blog/how-to-create-this-blog/</guid><pubDate>Fri, 01 Apr 2022 14:00:00 GMT</pubDate><content:encoded>&lt;p&gt;いままで技術的な備忘録はEvernoteに溜め込んでいましたが、あまりにも雑すぎて読み返しても読み解けず、結局また調べる羽目に。。。のようなことが何度かあったのでこれからは1年後に呼んでも読み解けるように書こうと思います。&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[自分のための備忘録]]></description><link>https://joe-yama.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 02 Apr 2022 13:12:52 GMT</lastBuildDate><item><title><![CDATA[AWS CLIでクロスアカウントのスイッチロールを行う]]></title><description><![CDATA[モチベーション 私の使っているAWS環境では諸事情によりOrganizationsが使用できないので、AWSアカウント管理は以下のように行っています。 アイデンティティアカウントにのみIAM Userを作成する アイデンティティアカウントには原則IAM…]]></description><link>https://joe-yama.github.io/blog/cross-account-switch-role-with-awscli/</link><guid isPermaLink="false">https://joe-yama.github.io/blog/cross-account-switch-role-with-awscli/</guid><pubDate>Sat, 02 Apr 2022 14:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;モチベーション&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E3%83%A2%E3%83%81%E3%83%99%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3&quot; aria-label=&quot;モチベーション permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;モチベーション&lt;/h2&gt;
+&lt;p&gt;私の使っているAWS環境では諸事情によりOrganizationsが使用できないので、AWSアカウント管理は以下のように行っています。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;アイデンティティアカウント&lt;/strong&gt;にのみIAM Userを作成する
+&lt;ul&gt;
+&lt;li&gt;アイデンティティアカウントには原則IAM関係のリソースしか作成しない&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;アイデンティティアカウント以外のAWSアカウント（子アカウントと呼んでいます）にはIAM Userは作成しない
+&lt;ul&gt;
+&lt;li&gt;子アカウントにはIAM Roleを作成し、アイデンティティアカウントからスイッチロールして開発を行う&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 489px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/blog/static/a3d83a10c1bf82aff1f3bf1e47ccbb16/03e1f/architecture.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 44.93670886075949%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsTAAALEwEAmpwYAAACQUlEQVQoz5WRW0sUYRjH/7Ou7qld23WVPaA7+747u3mY951xtTzM+85sadAJVygoIaEDgZd9gC6D8LKgrrzqoi8goUEHS+oiygsLTyjuXqTkBwiKmBhNkO564Ll8fs//AMrlR8pFH2Gij3BhUC5KlEuTMDGomY7eZ1/KL7xdbCiVK/eKpvOEctFFuRzQmDBKupUqMpEkXMYpE42ECQ7KRZFymSVMnCBcaJTLjrxu6QXD7gIQ/PXzB1zXBYAwgOOEiYLaM1yM9VZygZOjapvpFEq6lSgwAcIEBWHSR7kE4QJ53UJeH85cuHw9/ODhDObmX6Rqtdrkp89LN5aXv9za2/t+Znpi0jf+ftG/ciyd/ao0n3KBwGw4hXj5NCiXBU9hOMsr0HsGoDER0ZhV5gOjWdf9jedz8+l6vT61tr4xtbKyendtbb0KQDl/9WZ4JknsZ9Hs2NPmdtVFI4L9I55CDyhDnbqF1t4K2g27JdI/kk8Ydtrz+PrlK2xvb+9b9nZzcxOZVg0tiClx08lAXMxg6FwErosiE564A2CofwReSkv+RMNCoLVjNpKOrsY78Ob+tLK7u9NQvXY7Oj5xJ7q7883nRxjtCCJuOsDZK4AzhpTpKITLA8uEiRCcKj40JbGFWOBdU3JwQ4m1PU6oeJRQkTXs/Vi89Y6q+TK6eyzw7iFFY0Ip6RYIl0eAXIa8hrp1y5fjMtepW0TlkuS4DKp/yzoE0oMj/DuUC4UeBXr0nGF7pTSmTMdPmWgq6dbh9/8C/gGNsKMJpFYvdAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;my aws account architectute&quot;
+        title=&quot;my aws account architectute&quot;
+        src=&quot;/blog/static/a3d83a10c1bf82aff1f3bf1e47ccbb16/03e1f/architecture.png&quot;
+        srcset=&quot;/blog/static/a3d83a10c1bf82aff1f3bf1e47ccbb16/c26ae/architecture.png 158w,
+/blog/static/a3d83a10c1bf82aff1f3bf1e47ccbb16/6bdcf/architecture.png 315w,
+/blog/static/a3d83a10c1bf82aff1f3bf1e47ccbb16/03e1f/architecture.png 489w&quot;
+        sizes=&quot;(max-width: 489px) 100vw, 489px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;子アカウントで作業を行うためには毎回スイッチロールが必要になるのです。これがけっこう手間で面倒だったので対応を調べました。&lt;/p&gt;
+&lt;h2 id=&quot;スイッチロールをシームレスに行う&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E3%82%B9%E3%82%A4%E3%83%83%E3%83%81%E3%83%AD%E3%83%BC%E3%83%AB%E3%82%92%E3%82%B7%E3%83%BC%E3%83%A0%E3%83%AC%E3%82%B9%E3%81%AB%E8%A1%8C%E3%81%86&quot; aria-label=&quot;スイッチロールをシームレスに行う permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;スイッチロールをシームレスに行う&lt;/h2&gt;
+&lt;p&gt;AWS CLIでは &lt;code class=&quot;language-text&quot;&gt;--profile&lt;/code&gt; オプションを使用することで、プロファイルを指定してコマンドを実行することができます。&lt;/p&gt;
+&lt;p&gt;これは &lt;code class=&quot;language-text&quot;&gt;.aws/credential&lt;/code&gt; に複数のアクセスキーを記載しているときに、どのアクセスキーを使用するかを選ぶためだけにあると思っていました。&lt;/p&gt;
+&lt;p&gt;以下のように、 &lt;code class=&quot;language-text&quot;&gt;.aws/config&lt;/code&gt; でうまく設定することで、 &lt;code class=&quot;language-text&quot;&gt;--profile&lt;/code&gt; オプションを指定するだけで、スイッチロールを意識することなく子アカウントでの作業ができることがわかりました。&lt;/p&gt;
+&lt;h3 id=&quot;awscredentialsにアイデンティティアカウントの認証情報を記述する&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#awscredentials%E3%81%AB%E3%82%A2%E3%82%A4%E3%83%87%E3%83%B3%E3%83%86%E3%82%A3%E3%83%86%E3%82%A3%E3%82%A2%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E3%81%AE%E8%AA%8D%E8%A8%BC%E6%83%85%E5%A0%B1%E3%82%92%E8%A8%98%E8%BF%B0%E3%81%99%E3%82%8B&quot; aria-label=&quot;awscredentialsにアイデンティティアカウントの認証情報を記述する permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;①&lt;code class=&quot;language-text&quot;&gt;.aws/credentials&lt;/code&gt;にアイデンティティアカウントの認証情報を記述する&lt;/h3&gt;
+
+        &lt;div class=&quot;gatsby-code-title&quot;&gt;
+          &lt;span&gt;~/.aws/credential&lt;/span&gt;
+        &lt;/div&gt;
+       
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;toml&quot;&gt;&lt;pre class=&quot;language-toml&quot;&gt;&lt;code class=&quot;language-toml&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token table class-name&quot;&gt;identity-account&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;token key property&quot;&gt;aws_access_key_id&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt; &amp;lt;your access key id&gt;
+&lt;span class=&quot;token key property&quot;&gt;aws_secret_access_key&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt; &amp;lt;your secret access key&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;awsconfigにスイッチロールする際の設定を記述する&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#awsconfig%E3%81%AB%E3%82%B9%E3%82%A4%E3%83%83%E3%83%81%E3%83%AD%E3%83%BC%E3%83%AB%E3%81%99%E3%82%8B%E9%9A%9B%E3%81%AE%E8%A8%AD%E5%AE%9A%E3%82%92%E8%A8%98%E8%BF%B0%E3%81%99%E3%82%8B&quot; aria-label=&quot;awsconfigにスイッチロールする際の設定を記述する permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;②&lt;code class=&quot;language-text&quot;&gt;.aws/config&lt;/code&gt;にスイッチロールする際の設定を記述する&lt;/h3&gt;
+&lt;p&gt;アイデンティティアカウントにMFA設定がある場合は、&lt;code class=&quot;language-text&quot;&gt;mfa_serial&lt;/code&gt;（ハイライト行）にMFAデバイスのARNを記載してください。&lt;/p&gt;
+
+        &lt;div class=&quot;gatsby-code-title&quot;&gt;
+          &lt;span&gt;~/.aws/config&lt;/span&gt;
+        &lt;/div&gt;
+       
+&lt;div class=&quot;gatsby-highlight has-highlighted-lines&quot; data-language=&quot;toml&quot;&gt;&lt;pre class=&quot;language-toml&quot;&gt;&lt;code class=&quot;language-toml&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;profile identity-account&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;# アイデンティティアカウントの設定&lt;/span&gt;
+&lt;span class=&quot;token key property&quot;&gt;region&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt; ap-northeast&lt;span class=&quot;token number&quot;&gt;-1&lt;/span&gt;
+&lt;span class=&quot;token key property&quot;&gt;output&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt; json
+
+&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;profile dev-account&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;# プロファイル名は任意&lt;/span&gt;
+&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;&lt;span class=&quot;token key property&quot;&gt;mfa_serial&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt; arn:aws:iam::&lt;span class=&quot;token number&quot;&gt;123456789&lt;/span&gt;:mfa/your-mfa-device &lt;span class=&quot;token comment&quot;&gt;# 自分のMFAデバイスのARN&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token key property&quot;&gt;role_arn&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt; arn:aws:iam::&lt;span class=&quot;token number&quot;&gt;987654321&lt;/span&gt;:role/dev-account-role &lt;span class=&quot;token comment&quot;&gt;# スイッチしたい子アカウントのRole&lt;/span&gt;
+&lt;span class=&quot;token key property&quot;&gt;source_profile&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt; identity-account &lt;span class=&quot;token comment&quot;&gt;# ①で設定したアイデンティティアカウントのプロファイル名&lt;/span&gt;
+&lt;span class=&quot;token key property&quot;&gt;region&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt; ap-northeast&lt;span class=&quot;token number&quot;&gt;-1&lt;/span&gt;
+&lt;span class=&quot;token key property&quot;&gt;output&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt; json&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;これで設定は完了です。&lt;/p&gt;
+&lt;h3 id=&quot;プロファイルを指定してcliを実行する&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E3%83%97%E3%83%AD%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E6%8C%87%E5%AE%9A%E3%81%97%E3%81%A6cli%E3%82%92%E5%AE%9F%E8%A1%8C%E3%81%99%E3%82%8B&quot; aria-label=&quot;プロファイルを指定してcliを実行する permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;③プロファイルを指定してCLIを実行する&lt;/h3&gt;
+&lt;p&gt;もうスイッチロールを意識せずとも、プロファイルを指定するだけで子アカウントのRoleでCLIを実行できます。&lt;/p&gt;
+
+        &lt;div class=&quot;gatsby-code-title&quot;&gt;
+          &lt;span&gt;bash&lt;/span&gt;
+        &lt;/div&gt;
+       
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;$ aws sts get-caller-identity --profile dev-account
+Enter MFA code &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; arn:aws:iam::123456789:mfa/your-mfa-device: &lt;span class=&quot;token number&quot;&gt;123456&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&quot;UserId&quot;&lt;/span&gt;&lt;span class=&quot;token builtin class-name&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;ARXXXXXXXXXXXXXXXX:botocore-session-1111111111&quot;&lt;/span&gt;,
+    &lt;span class=&quot;token string&quot;&gt;&quot;Account&quot;&lt;/span&gt;&lt;span class=&quot;token builtin class-name&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;987654321&quot;&lt;/span&gt;,
+    &lt;span class=&quot;token string&quot;&gt;&quot;Arn&quot;&lt;/span&gt;&lt;span class=&quot;token builtin class-name&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;arn:aws:sts::987654321:assumed-role/dev-account-role/botocore-session-1111111111&quot;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;初回はMFAコードを求められますが、2回目以降はstsの有効期限が切れるまでMFAコードは聞かれなくなります。&lt;/p&gt;</content:encoded></item><item><title><![CDATA[このブログをはじめるにあたって]]></title><description><![CDATA[いままで技術的な備忘録はEvernoteに溜め込んでいましたが、あまりにも雑すぎて読み返しても読み解けず、結局また調べる羽目に。。。のようなことが何度かあったのでこれからは…]]></description><link>https://joe-yama.github.io/blog/how-to-create-this-blog/</link><guid isPermaLink="false">https://joe-yama.github.io/blog/how-to-create-this-blog/</guid><pubDate>Fri, 01 Apr 2022 14:00:00 GMT</pubDate><content:encoded>&lt;p&gt;いままで技術的な備忘録はEvernoteに溜め込んでいましたが、あまりにも雑すぎて読み返しても読み解けず、結局また調べる羽目に。。。のようなことが何度かあったのでこれからは1年後に呼んでも読み解けるように書こうと思います。&lt;/p&gt;
 &lt;p&gt;せっかく丁寧に書くなら公開したいのでメモ用のブログを作ることにしました（このブログです）。&lt;/p&gt;
 &lt;h2 id=&quot;コストパフォーマンスの高い技術選定&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E3%82%B3%E3%82%B9%E3%83%88%E3%83%91%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%B3%E3%82%B9%E3%81%AE%E9%AB%98%E3%81%84%E6%8A%80%E8%A1%93%E9%81%B8%E5%AE%9A&quot; aria-label=&quot;コストパフォーマンスの高い技術選定 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;コストパフォーマンスの高い技術選定&lt;/h2&gt;
 &lt;p&gt;ブログどこに作ろうか迷いましたが、GatsbyJSで静的サイトを生成し、GitHubPagesにデプロイすることにしました。何度かWordpressでブログを作ったことがありますが、EC2を1台管理することすら面倒ですし、最小構成でも月500円ぐらいかかるので、、、&lt;/p&gt;

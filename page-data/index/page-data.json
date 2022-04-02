@@ -1,5 +1,5 @@
 {
     "componentChunkName": "component---src-pages-index-js",
     "path": "/",
-    "result": {"data":{"site":{"siteMetadata":{"title":"joe-yamaの備忘録ブログ"}},"allMarkdownRemark":{"nodes":[{"excerpt":"いままで技術的な備忘録はEvernoteに溜め込んでいましたが、あまりにも雑すぎて読み返しても読み解けず、結局また調べる羽目に。。。のようなことが何度かあったのでこれからは…","fields":{"slug":"/how-to-create-this-blog/"},"frontmatter":{"date":"April 01, 2022","title":"このブログをはじめるにあたって","description":"どうしてブログを作ったか。どうやってブログを作ったか。"}}]}},"pageContext":{}},
+    "result": {"data":{"site":{"siteMetadata":{"title":"joe-yamaの備忘録ブログ"}},"allMarkdownRemark":{"nodes":[{"excerpt":"モチベーション 私の使っているAWS環境では諸事情によりOrganizationsが使用できないので、AWSアカウント管理は以下のように行っています。 アイデンティティアカウントにのみIAM Userを作成する アイデンティティアカウントには原則IAM…","fields":{"slug":"/cross-account-switch-role-with-awscli/"},"frontmatter":{"date":"April 02, 2022","title":"AWS CLIでクロスアカウントのスイッチロールを行う","description":".aws/configに何を書けば良いんだっけ？と思ったときのための備忘録"}},{"excerpt":"いままで技術的な備忘録はEvernoteに溜め込んでいましたが、あまりにも雑すぎて読み返しても読み解けず、結局また調べる羽目に。。。のようなことが何度かあったのでこれからは…","fields":{"slug":"/how-to-create-this-blog/"},"frontmatter":{"date":"April 01, 2022","title":"このブログをはじめるにあたって","description":"どうしてブログを作ったか。どうやってブログを作ったか。"}}]}},"pageContext":{}},
     "staticQueryHashes": ["2841359383","3257411868"]}
