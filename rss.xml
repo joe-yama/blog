@@ -1,4 +1,89 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[自分のための備忘録]]></description><link>https://joe-yama.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 07 May 2022 14:54:40 GMT</lastBuildDate><item><title><![CDATA[Googleフォトの半分以下のコストで動画を保管・共有する]]></title><description><![CDATA[友人の結婚式で動画を撮りまくっていたら、合計10GBを超えてしまっていました。（最近カメラを買ったので、、、）
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[自分のための備忘録]]></description><link>https://joe-yama.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 17 Aug 2022 13:59:44 GMT</lastBuildDate><item><title><![CDATA[自作キーボードChoco60のフルカスタマイズする]]></title><description><![CDATA[Choco60 rev.2 というキーボードを購入して約半年間経ち、Choco60に最適なキーマップや物理的なカスタマイズができたので、紹介したいと思います。 ビルドログは他の方がたくさん書いているので、この記事ではChoco6…]]></description><link>https://joe-yama.github.io/blog/introduce-my-keyboard/</link><guid isPermaLink="false">https://joe-yama.github.io/blog/introduce-my-keyboard/</guid><pubDate>Thu, 18 Aug 2022 21:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Choco60 rev.2 というキーボードを購入して約半年間経ち、Choco60に最適なキーマップや物理的なカスタマイズができたので、紹介したいと思います。&lt;/p&gt;
+&lt;p&gt;ビルドログは他の方がたくさん書いているので、この記事ではChoco60に最適な周辺部品の話をメインに記載しようと思います。&lt;/p&gt;
+&lt;h2 id=&quot;choco60-rev2というキーボード&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#choco60-rev2%E3%81%A8%E3%81%84%E3%81%86%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89&quot; aria-label=&quot;choco60 rev2というキーボード permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Choco60 rev.2　というキーボード&lt;/h2&gt;
+&lt;p&gt;Choco60は、HHKBと同じ配列の分割キーボードです。rev.2という名の通り、現在販売されているのは２代目だそうです。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Choco60 はプログラマーに人気のキー配列を分割した 60% キーボードです。ふだんとまったく同じ使い心地で、分割キーボードならではの自然な姿勢でタイピングすることができます。
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.32911392405063%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMEAv/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAGknwNFFn//xAAZEAACAwEAAAAAAAAAAAAAAAAAAQIREhD/2gAIAQEAAQUC0Wq0SSKXP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABUQAQEAAAAAAAAAAAAAAAAAABEg/9oACAEBAAY/Aiv/xAAbEAEBAQACAwAAAAAAAAAAAAABABEhMVFhkf/aAAgBAQABPyEGqS7Wn2w+pnKGz4iAy//aAAwDAQACAAMAAAAQgN//xAAWEQADAAAAAAAAAAAAAAAAAAABEBH/2gAIAQMBAT8QEX//xAAWEQEBAQAAAAAAAAAAAAAAAAABEFH/2gAIAQIBAT8QR2f/xAAaEAEAAwEBAQAAAAAAAAAAAAABABExYSFx/9oACAEBAAE/EGEC5bU2ALTqLLp4WOCSNSeD5ZMwqf/Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Choco60 rev.2&quot;
+        title=&quot;Choco60 rev.2&quot;
+        src=&quot;/blog/static/30f87d1de3adb535a759f9e1681a9cdd/828fb/choco60rev2officialimage.jpg&quot;
+        srcset=&quot;/blog/static/30f87d1de3adb535a759f9e1681a9cdd/ff44c/choco60rev2officialimage.jpg 158w,
+/blog/static/30f87d1de3adb535a759f9e1681a9cdd/a6688/choco60rev2officialimage.jpg 315w,
+/blog/static/30f87d1de3adb535a759f9e1681a9cdd/828fb/choco60rev2officialimage.jpg 630w,
+/blog/static/30f87d1de3adb535a759f9e1681a9cdd/0ede0/choco60rev2officialimage.jpg 945w,
+/blog/static/30f87d1de3adb535a759f9e1681a9cdd/e5166/choco60rev2officialimage.jpg 1200w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+    &lt;/span&gt;
+引用：&lt;a href=&quot;https://keys.recompile.net/projects/choco60-rev2/&quot;&gt;Choco60 rev.2 – recompile keys&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;HHKBの配列はとても気に入っており、この配列の分割キーボードを探していました。同様のコンセプトには&lt;a href=&quot;https://salicylic-acid3.hatenablog.com/entry/7skb-introduction&quot;&gt;7sKB&lt;/a&gt;というキーボードもありましたが、当時は在庫切れだったので、Choco60 rev.2を購入しました。&lt;/p&gt;
+&lt;h2 id=&quot;最終的にたどり着いたカスタマイズ&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E6%9C%80%E7%B5%82%E7%9A%84%E3%81%AB%E3%81%9F%E3%81%A9%E3%82%8A%E7%9D%80%E3%81%84%E3%81%9F%E3%82%AB%E3%82%B9%E3%82%BF%E3%83%9E%E3%82%A4%E3%82%BA&quot; aria-label=&quot;最終的にたどり着いたカスタマイズ permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;最終的にたどり着いたカスタマイズ&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;キースイッチ
+&lt;ul&gt;
+&lt;li&gt;Zilent V2 (67g)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;キーキャップ
+&lt;ul&gt;
+&lt;li&gt;NP PBT Blank KEYCAPS SET 124 Keys (White, Off-White)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;スタビライザーまわり
+&lt;ul&gt;
+&lt;li&gt;Mekanisk Ultramarine Stabilisers v2&lt;/li&gt;
+&lt;li&gt;KBDfans Stabilizers foam sticker&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;ルブ
+&lt;ul&gt;
+&lt;li&gt;Krytox GPL 105&lt;/li&gt;
+&lt;li&gt;Tribosys 3203&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;USBケーブル
+&lt;ul&gt;
+&lt;li&gt;MOMOKA Silver Bullet Keyboard Cable&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;キースイッチ---zilent-v2-67g&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E3%82%AD%E3%83%BC%E3%82%B9%E3%82%A4%E3%83%83%E3%83%81---zilent-v2-67g&quot; aria-label=&quot;キースイッチ   zilent v2 67g permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;キースイッチ - Zilent V2 (67g)&lt;/h2&gt;
+&lt;p&gt;自作キーボードは初めてだったので、電器屋に行って試し打ちをしました。その結果、自分はタクタイルスイッチ（茶軸）が好みだということがわかったので、タクタイルだけに絞って探しました。&lt;/p&gt;
+&lt;p&gt;タクタイルに絞ったとはいえ、無数に種類があり非常に迷いましたが、最終的には&lt;a href=&quot;https://blog.yushakobo.jp/entry/2021/02/28/193030&quot;&gt;遊舎工房の人気スイッチランキング&lt;/a&gt;の上位にあったZilent V2にしました。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;HHKBを利用されている方に特に人気のある印象。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;という記載が決め手でしたね。&lt;/p&gt;
+&lt;p&gt;67gなので押しごたえがあって私はかなり満足しています。もちろんHHKBよりも打鍵圧は重いです。&lt;/p&gt;
+&lt;h2 id=&quot;キーキャップ---np-pbt-blank-keycaps&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E3%82%AD%E3%83%BC%E3%82%AD%E3%83%A3%E3%83%83%E3%83%97---np-pbt-blank-keycaps&quot; aria-label=&quot;キーキャップ   np pbt blank keycaps permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;キーキャップ - NP PBT Blank KEYCAPS&lt;/h2&gt;
+&lt;p&gt;キーキャップは３種類ほど試して、やっと満足のいくものに出会えました。&lt;/p&gt;
+&lt;p&gt;Choco60はHHKB配列かつ分割キーボードなので、標準キーセットでは不足するキーが出てしまいます。個人的にいろいろ調べ、いくつかのキーキャップを試した結果、ブランクキーキャップならこれ一択という結論に至りました。&lt;/p&gt;
+&lt;p&gt;NPプロファイルの柔らかい見た目がChoco60のデザインとマッチし、とても気に入っています。
+ブランクキーキャップは質感によっては一気に安っぽく見えてしまいますが、このキーキャップはマット地で高級感があります。&lt;/p&gt;
+&lt;p&gt;私はブランクキーキャップだと数字のミスタイプが多いので、数字の５〜９のキーだけ若干異なる色（メインのキー：ホワイト、数字の５〜９：オフホワイト）にしています。&lt;/p&gt;
+&lt;h2 id=&quot;スタビライザーまわり&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E3%82%B9%E3%82%BF%E3%83%93%E3%83%A9%E3%82%A4%E3%82%B6%E3%83%BC%E3%81%BE%E3%82%8F%E3%82%8A&quot; aria-label=&quot;スタビライザーまわり permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;スタビライザーまわり&lt;/h2&gt;
+&lt;p&gt;初めての自作キーボードだったので、効果が分からないながらもスタビライザーを別売りのものに換装し、フォームステッカーまで貼りました。&lt;/p&gt;
+&lt;p&gt;もとのスタビライザーと比較していないのでわかりませんが、いい音になっている気がします。&lt;/p&gt;
+&lt;h2 id=&quot;ルブ&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%E3%83%AB%E3%83%96&quot; aria-label=&quot;ルブ permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;ルブ&lt;/h2&gt;
+&lt;p&gt;これも色々調べて見様見真似でやってみました。めちゃくちゃ大変でした。
+ルブステーションも一緒に買いましたが、買ってよかったです。&lt;/p&gt;
+&lt;h2 id=&quot;usbケーブル---momoka-silver-bullet-keyboard-cable&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#usb%E3%82%B1%E3%83%BC%E3%83%96%E3%83%AB---momoka-silver-bullet-keyboard-cable&quot; aria-label=&quot;usbケーブル   momoka silver bullet keyboard cable permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;USBケーブル - MOMOKA Silver Bullet Keyboard Cable&lt;/h2&gt;
+&lt;p&gt;これはしばらくして後から買いました。Choco60に限らず自作キーボードのUSB接続部分は、長く使用しているともげるそうです。&lt;/p&gt;
+&lt;p&gt;なるべくケーブルの抜き差しを行わなくて良いように、このケーブルを購入しました。&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Googleフォトの半分以下のコストで動画を保管・共有する]]></title><description><![CDATA[友人の結婚式で動画を撮りまくっていたら、合計10GBを超えてしまっていました。（最近カメラを買ったので、、、）
 Googleフォトに保存して共有すればいいや、と楽観視していましたが問題発生。 Googleフォトに無料で保存できるのは1アカウント15GB…]]></description><link>https://joe-yama.github.io/blog/sharing-wedding-movie-via-s3/</link><guid isPermaLink="false">https://joe-yama.github.io/blog/sharing-wedding-movie-via-s3/</guid><pubDate>Wed, 27 Apr 2022 14:00:00 GMT</pubDate><content:encoded>&lt;p&gt;友人の結婚式で動画を撮りまくっていたら、合計10GBを超えてしまっていました。（最近カメラを買ったので、、、）
 Googleフォトに保存して共有すればいいや、と楽観視していましたが問題発生。&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://support.google.com/photos/answer/6220791?hl=ja&quot;&gt;Googleフォトに無料で保存できるのは1アカウント15GBまで&lt;/a&gt;というのを忘れていました。
